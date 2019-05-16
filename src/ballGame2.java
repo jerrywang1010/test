@@ -24,7 +24,7 @@ public class ballGame2 extends JFrame {
         if (right && !down) {
             x = x + 10*Math.cos(degree);
             y = y - 10*Math.sin(degree);
-
+//sd
         }
 
         if (!right && down){
