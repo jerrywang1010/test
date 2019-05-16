@@ -11,15 +11,41 @@ public class ballGame2 extends JFrame {
     double y = 100;
     boolean right = true;
     double degree = 3.14/3;
+    boolean down = true;
 
-    public void paint(Graphics g){
-        System.out.println("hua le");
+    public void paint(Graphics g){ System.out.println("hua le");
         g.drawImage(desk, 0, 0, null);
         g.drawImage(ball, (int)x, (int)y, null);
+            if (down && right) {
+            x = x + 10 * Math.cos(degree);
+            y = y + 10 * Math.sin(degree);
+            }
+        //moving up
+        if (right && !down) {
+            x = x + 10*Math.cos(degree);
+            y = y - 10*Math.sin(degree);
 
-        x = x + 10*Math.cos(degree);
-        y = y + 10*Math.sin(degree);
+        }
 
+        if (!right && down){
+            x = x - 10*Math.cos(degree);
+            y = y + 10*Math.sin(degree);
+        }
+
+        if (!right && !down){
+            x = x - 10*Math.cos(degree);
+            y = y - 10*Math.sin(degree);
+        }
+        if (y < 40)
+            down = true;
+
+        if (y > 500 - 40 - 30)
+            down = false;
+
+        if (x < 40)
+            right = true;
+        if (x > 856 - 30 - 40)
+            right  = false;
 
     }
 
